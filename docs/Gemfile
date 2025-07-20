@@ -2,13 +2,10 @@
 
 source "https://rubygems.org"
 
-# Jekyll
-gem "jekyll", "~> 4.3.0"
-
-# GitHub Pages
+# GitHub Pages（JekyllはGitHub Pagesに含まれているのでコメントアウト）
 gem "github-pages", group: :jekyll_plugins
 
-# Jekyll plugins
+# Jekyll plugins（GitHub Pagesに含まれているもの以外）
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap"
