@@ -124,6 +124,12 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
     <p>全GitHub機能の詳細解説とプロ向け活用法</p>
     <span class="new-badge">NEW</span>
   </a>
+  
+  <a href="workflow/github-development-workflow.html" class="guide-link">
+    <h4>🔄 開発ワークフロー</h4>
+    <p>実際の開発でいつ・何を・どう使うか</p>
+    <span class="new-badge">NEW</span>
+  </a>
 </div>
 
 ## 🎓 学習の進め方
