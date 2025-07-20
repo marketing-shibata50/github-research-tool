@@ -110,6 +110,16 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
   </a>
 </div>
 
+### 🚀 アドバンスドガイド
+
+<div class="guide-links">
+  <a href="advanced/ai-parallel-development.html" class="guide-link">
+    <h4>🤖 AI駆動並列開発</h4>
+    <p>複数のAIツールを活用した超高速開発手法</p>
+    <span class="new-badge">NEW</span>
+  </a>
+</div>
+
 ## 🎓 学習の進め方
 
 ### 🔰 初心者の方
@@ -352,6 +362,24 @@ gh issue create --title "プロジェクト初期設定" --body "GitHub機能の
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 500;
+}
+
+/* NEWバッジ */
+.new-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #ff5722;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.guide-link {
+  position: relative;
 }
 
 /* レスポンシブ対応 */
