@@ -6,7 +6,34 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
 
 # 🚀 GitHub完全活用ガイド
 
-> **GitHub機能を網羅的に理解し、開発プロセスを最適化するための実践的解説書**
+> **GitHubって何？から始める、初心者からプロまで使える完全ガイド**
+
+## 🌱 初めての方はこちらから！
+
+<div class="beginner-section">
+  <h2>🔰 GitHub初心者の方へ</h2>
+  <p>プログラミング知識ゼロでも大丈夫！まずはここから始めましょう。</p>
+  
+  <div class="beginner-links">
+    <a href="beginners/github-features-simple.html" class="beginner-card">
+      <h3>📋 機能一覧</h3>
+      <p>GitHubで何ができるの？<br>12の機能をシンプルに解説</p>
+      <span class="time">5分で読める</span>
+    </a>
+    
+    <a href="beginners/github-beginner-guide.html" class="beginner-card">
+      <h3>🌱 入門ガイド</h3>
+      <p>アカウント作成から<br>最初のファイル保存まで</p>
+      <span class="time">10分で始められる</span>
+    </a>
+    
+    <a href="beginners/github-hands-on.html" class="beginner-card">
+      <h3>🖥️ 実践ガイド</h3>
+      <p>画面を見ながら<br>実際に操作してみよう</p>
+      <span class="time">手を動かして学ぶ</span>
+    </a>
+  </div>
+</div>
 
 <div class="hero-section">
   <h2>🎯 このサイトで学べること</h2>
@@ -260,20 +287,87 @@ gh issue create --title "プロジェクト初期設定" --body "GitHub機能の
   color: white;
 }
 
+/* 初心者セクション */
+.beginner-section {
+  background: #e3f2fd;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.beginner-section h2 {
+  color: #1976d2;
+  margin-bottom: 1rem;
+}
+
+.beginner-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.beginner-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.beginner-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.beginner-card h3 {
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.beginner-card p {
+  color: #424242;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.beginner-card .time {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .features-grid,
   .guide-links,
-  .stats-section {
+  .stats-section,
+  .beginner-links {
     grid-template-columns: 1fr;
   }
   
-  .hero-section {
+  .hero-section,
+  .beginner-section {
     padding: 1.5rem;
   }
   
   .stat-item h3 {
     font-size: 2rem;
+  }
+  
+  .beginner-card {
+    padding: 1.5rem;
   }
 }
 </style>
