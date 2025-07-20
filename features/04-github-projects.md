@@ -735,8 +735,10 @@ GitHub Projects V2を効果的に活用することで：
 ## 🔗 関連ガイド
 
 - **前のステップ**: [Pull Request編](03-pull-requests.md) - コードレビュープロセス最適化
+- **次のステップ**: [GitHub Actions編](05-github-actions.md) - プロジェクト自動化・CI/CD
 - **基礎知識**: [Issues管理編](02-issues-management.md) - タスク管理の基礎
 - **さらに基礎**: [リポジトリ基礎編](01-repository-basics.md) - 基本的なGit操作
+- **セキュリティ**: [GitHub Security編](06-github-security.md) - プロジェクトセキュリティ
 - **総合ガイド**: [GitHub完全活用ガイド](../GITHUB_COMPLETE_GUIDE.md) - 全機能の詳細解説
 
 ## 📖 学習フロー

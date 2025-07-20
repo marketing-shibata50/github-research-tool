@@ -595,6 +595,8 @@ GitHub Issues を効果的に活用することで：
 - **前のステップ**: [リポジトリ基礎編](01-repository-basics.md) - GitHub の基本操作
 - **次のステップ**: [Pull Request編](03-pull-requests.md) - コードレビューとマージプロセス
 - **さらに学習**: [GitHub Projects編](04-github-projects.md) - アジャイル開発プロジェクト管理
+- **自動化**: [GitHub Actions編](05-github-actions.md) - Issue自動化・CI/CD
+- **セキュリティ**: [GitHub Security編](06-github-security.md) - セキュリティ課題管理
 - **総合ガイド**: [GitHub完全活用ガイド](../GITHUB_COMPLETE_GUIDE.md) - 全機能の詳細解説
 
 ## 📖 学習フロー

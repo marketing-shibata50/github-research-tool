@@ -60,24 +60,42 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
     <h4>📋 GitHub Projects</h4>
     <p>アジャイル開発のためのプロジェクト管理</p>
   </a>
+  
+  <a href="features/05-github-actions.html" class="guide-link">
+    <h4>⚡ GitHub Actions</h4>
+    <p>Jenkins・CircleCI代替のCI/CD自動化</p>
+  </a>
+  
+  <a href="features/06-github-security.html" class="guide-link">
+    <h4>🛡️ GitHub Security</h4>
+    <p>企業レベルの総合セキュリティ対策</p>
+  </a>
+  
+  <a href="features/07-github-pages.html" class="guide-link">
+    <h4>🌐 GitHub Pages</h4>
+    <p>高機能Webサイト・ドキュメント公開</p>
+  </a>
 </div>
 
 ## 🎓 学習の進め方
 
-### 初心者の方
+### 🔰 初心者の方
 1. **[リポジトリ基礎](features/01-repository-basics.html)** で基本操作を習得
 2. **[Issues管理](features/02-issues-management.html)** でタスク管理を体験
-3. **[完全ガイド](GITHUB_COMPLETE_GUIDE.html)** で全体像を把握
+3. **[Pull Request](features/03-pull-requests.html)** でコードレビュー学習
+4. **[完全ガイド](GITHUB_COMPLETE_GUIDE.html)** で全体像を把握
 
-### 経験者の方
-1. **[完全ガイド](GITHUB_COMPLETE_GUIDE.html)** で新機能をチェック
+### 👨‍💻 開発者・経験者の方
+1. **[GitHub Actions](features/05-github-actions.html)** でCI/CD自動化を習得
+2. **[GitHub Security](features/06-github-security.html)** でセキュリティ対策を強化
+3. **[GitHub Pages](features/07-github-pages.html)** でWebサイト・ドキュメント公開
+4. **[GitHub Projects](features/04-github-projects.html)** でアジャイル開発実践
+
+### 👔 チームリーダー・意思決定者の方
+1. **[完全ガイド](GITHUB_COMPLETE_GUIDE.html)** でコスト分析・ROI検討
 2. **外部ツール代替戦略** で移行計画を立案
-3. **実務ケーススタディ** で最適な導入方法を選択
-
-### チームリーダーの方
-1. **コスト分析** で導入効果を試算
-2. **段階的移行計画** でリスクを最小化
-3. **実装チェックリスト** で確実な導入を実現
+3. **段階的移行計画** でリスク最小化
+4. **実装チェックリスト** で確実な導入を実現
 
 ## 🎉 導入効果の実例
 

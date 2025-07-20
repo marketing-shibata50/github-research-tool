@@ -913,6 +913,8 @@ GitHub Pull Request機能を効果的に活用することで：
 - **前のステップ**: [Issues管理編](02-issues-management.md) - タスク管理とプロジェクト追跡
 - **次のステップ**: [GitHub Projects編](04-github-projects.md) - プロジェクト管理の最適化
 - **基礎知識**: [リポジトリ基礎編](01-repository-basics.md) - ブランチ管理とタグ運用
+- **自動化**: [GitHub Actions編](05-github-actions.md) - PR自動化・CI/CD
+- **セキュリティ**: [GitHub Security編](06-github-security.md) - セキュアな開発プロセス
 - **総合ガイド**: [GitHub完全活用ガイド](../GITHUB_COMPLETE_GUIDE.md) - 全機能の詳細解説
 
 ## 📖 学習フロー
