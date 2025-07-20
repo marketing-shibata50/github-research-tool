@@ -1,0 +1,71 @@
+# GitHub Research Tool - Website Configuration
+
+title: "GitHub完全活用ガイド"
+description: "外部ツールに依存せず、GitHub一つで開発業務を完結させるための網羅的解説書"
+url: "https://marketing-shibata50.github.io"
+baseurl: "/github-research-tool"
+
+# GitHub Pages settings
+remote_theme: "pages-themes/minimal@v0.2.0"
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation
+header_pages:
+  - index.md
+  - features/01-repository-basics.md
+  - features/02-issues-management.md
+  - GITHUB_COMPLETE_GUIDE.md
+
+# GitHub repository
+github:
+  repository_name: github-research-tool
+  repository_url: https://github.com/marketing-shibata50/github-research-tool
+
+# Author
+author:
+  name: "GitHub Research Team"
+  email: "research@github-tools.com"
+
+# Site settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Include/Exclude files
+include:
+  - _pages
+  - assets
+
+exclude:
+  - vendor
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+
+# Collections
+collections:
+  guides:
+    output: true
+    permalink: /:collection/:name/
+  examples:
+    output: true
+    permalink: /:collection/:name/
+
+# SEO
+lang: ja
+timezone: Asia/Tokyo
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Social
+social:
+  github: marketing-shibata50

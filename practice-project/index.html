@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Personal Task Manager</h1>
+            <p>GitHub機能学習用タスク管理アプリ</p>
+        </header>
+
+        <main>
+            <!-- タスク追加フォーム -->
+            <section class="add-task-section">
+                <h2>新しいタスクを追加</h2>
+                <form id="addTaskForm">
+                    <div class="form-group">
+                        <input type="text" id="taskTitle" placeholder="タスクタイトル" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="taskDescription" placeholder="詳細説明（任意）"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <select id="taskCategory">
+                            <option value="feature">新機能</option>
+                            <option value="bug">バグ修正</option>
+                            <option value="improvement">改善</option>
+                            <option value="documentation">ドキュメント</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="taskPriority">
+                            <option value="low">低優先度</option>
+                            <option value="medium" selected>中優先度</option>
+                            <option value="high">高優先度</option>
+                        </select>
+                    </div>
+                    <button type="submit">タスクを追加</button>
+                </form>
+            </section>
+
+            <!-- フィルタリング -->
+            <section class="filter-section">
+                <h2>フィルタ</h2>
+                <div class="filters">
+                    <select id="categoryFilter">
+                        <option value="all">すべてのカテゴリ</option>
+                        <option value="feature">新機能</option>
+                        <option value="bug">バグ修正</option>
+                        <option value="improvement">改善</option>
+                        <option value="documentation">ドキュメント</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="all">すべての状態</option>
+                        <option value="todo">TODO</option>
+                        <option value="in-progress">進行中</option>
+                        <option value="done">完了</option>
+                    </select>
+                    <select id="priorityFilter">
+                        <option value="all">すべての優先度</option>
+                        <option value="high">高優先度</option>
+                        <option value="medium">中優先度</option>
+                        <option value="low">低優先度</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- タスクリスト -->
+            <section class="tasks-section">
+                <h2>タスク一覧</h2>
+                <div class="task-board">
+                    <div class="task-column" data-status="todo">
+                        <h3>📋 TODO</h3>
+                        <div class="task-list" id="todoTasks"></div>
+                    </div>
+                    <div class="task-column" data-status="in-progress">
+                        <h3>🔄 進行中</h3>
+                        <div class="task-list" id="inProgressTasks"></div>
+                    </div>
+                    <div class="task-column" data-status="done">
+                        <h3>✅ 完了</h3>
+                        <div class="task-list" id="doneTasks"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 統計情報 -->
+            <section class="stats-section">
+                <h2>統計</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>総タスク数</h3>
+                        <span id="totalTasks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>完了タスク</h3>
+                        <span id="completedTasks">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>進行中</h3>
+                        <span id="inProgressCount">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>完了率</h3>
+                        <span id="completionRate">0%</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>GitHub機能学習プロジェクト - Personal Task Manager</p>
+            <p>Issues、Projects、Actions、Pages の実践的な学習を目的としています</p>
+        </footer>
+    </div>
+
+    <!-- タスクテンプレート -->
+    <template id="taskTemplate">
+        <div class="task-card" draggable="true">
+            <div class="task-header">
+                <span class="task-id"></span>
+                <span class="task-priority"></span>
+                <span class="task-category"></span>
+            </div>
+            <h4 class="task-title"></h4>
+            <p class="task-description"></p>
+            <div class="task-meta">
+                <span class="task-created"></span>
+                <div class="task-actions">
+                    <button class="edit-btn" title="編集">✏️</button>
+                    <button class="delete-btn" title="削除">🗑️</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
