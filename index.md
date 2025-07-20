@@ -51,14 +51,14 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
     <p>Jiraを完全代替するタスク管理システム</p>
   </a>
   
-  <a href="#" class="guide-link coming-soon">
+  <a href="features/03-pull-requests.html" class="guide-link">
     <h4>🔄 Pull Request</h4>
-    <p>効率的なコードレビューフロー（準備中）</p>
+    <p>効率的なコードレビューフローとマージ戦略</p>
   </a>
   
-  <a href="#" class="guide-link coming-soon">
+  <a href="features/04-github-projects.html" class="guide-link">
     <h4>📋 GitHub Projects</h4>
-    <p>アジャイル開発のためのプロジェクト管理（準備中）</p>
+    <p>アジャイル開発のためのプロジェクト管理</p>
   </a>
 </div>
 
