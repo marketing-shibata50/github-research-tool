@@ -719,5 +719,6 @@ A: はい！ファイル名以外は日本語OK。
 - [初心者向け入門ガイド](github-beginner-guide.md)
 - [実践的な操作手順](github-hands-on.md)
 - [Git ワークフローガイド](github-git-workflow.md) - Clone → 編集 → Push の流れ
+- [**🆕 20機能の詳細ガイド**](../advanced/github-features-detailed.md) - 各機能の完全解説
 
 でも、まずは**リポジトリを作って、何か保存してみる**ことから始めましょう！🎉
