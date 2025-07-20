@@ -17,7 +17,7 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
   <div class="beginner-links">
     <a href="beginners/github-features-simple.html" class="beginner-card">
       <h3>📋 機能一覧</h3>
-      <p>GitHubで何ができるの？<br>12の機能をシンプルに解説</p>
+      <p>GitHubで何ができるの？<br>20の機能をシンプルに解説</p>
       <span class="time">5分で読める</span>
     </a>
     
@@ -31,6 +31,12 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
       <h3>🖥️ 実践ガイド</h3>
       <p>画面を見ながら<br>実際に操作してみよう</p>
       <span class="time">手を動かして学ぶ</span>
+    </a>
+    
+    <a href="beginners/github-git-workflow.html" class="beginner-card">
+      <h3>🔄 ワークフロー</h3>
+      <p>Clone → Push → Pull<br>実際の作業の流れを理解</p>
+      <span class="time">図解で分かる</span>
     </a>
   </div>
 </div>
@@ -303,7 +309,7 @@ gh issue create --title "プロジェクト初期設定" --body "GitHub機能の
 
 .beginner-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
