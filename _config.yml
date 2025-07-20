@@ -1,0 +1,33 @@
+# GitHub研究ツール - シンプル設定
+
+title: "GitHub完全活用ガイド"
+description: "外部ツールに依存せず、GitHub一つで開発業務を完結させるための網羅的解説書"
+
+# GitHub Pages標準テーマ
+theme: minima
+
+# GitHub情報
+github_username: marketing-shibata50
+repository: marketing-shibata50/github-research-tool
+
+# サイト設定
+lang: ja
+timezone: Asia/Tokyo
+
+# プラグイン（GitHub Pages標準）
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Markdown設定
+markdown: kramdown
+highlighter: rouge
+
+# 除外ファイル
+exclude:
+  - docs/
+  - practice-project/
+  - tools/
+  - examples/
+  - test
+  - README.md
