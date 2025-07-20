@@ -130,6 +130,12 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
     <p>実際の開発でいつ・何を・どう使うか</p>
     <span class="new-badge">NEW</span>
   </a>
+  
+  <a href="workflow/ai-parallel-workflow.html" class="guide-link">
+    <h4>🤖 AI並列開発実践</h4>
+    <p>1日でWebアプリを作る具体的手順</p>
+    <span class="new-badge">NEW</span>
+  </a>
 </div>
 
 ## 🎓 学習の進め方
