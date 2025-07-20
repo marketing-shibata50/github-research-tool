@@ -13,6 +13,7 @@ plugins:
   - jekyll-seo-tag
 
 # GitHub repository
+repository: marketing-shibata50/github-research-tool
 github:
   repository_name: github-research-tool
   repository_url: https://github.com/marketing-shibata50/github-research-tool
