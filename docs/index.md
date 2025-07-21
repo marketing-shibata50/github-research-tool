@@ -62,6 +62,20 @@ description: "外部ツールに依存せず、GitHub一つで開発業務を完
   </a>
 </div>
 
+### 📊 実践事例集
+
+<div class="case-study-section">
+  <a href="case-studies/index.html" class="case-study-banner">
+    <h3>🚀 2024年版 GitHub活用事例集</h3>
+    <p>実際の企業・組織での導入事例から学ぶベストプラクティス</p>
+    <div class="case-study-highlights">
+      <span class="highlight">💡 日立製作所: コード生成率99%達成</span>
+      <span class="highlight">⚡ Accenture: タスク完了時間55%短縮</span>
+      <span class="highlight">🎯 DeNA: 大規模CI/CD最適化</span>
+    </div>
+  </a>
+</div>
+
 ## 🎓 学習の進め方
 
 ### 初心者の方
@@ -242,6 +256,53 @@ gh issue create --title "プロジェクト初期設定" --body "GitHub機能の
   color: white;
 }
 
+/* ケーススタディセクション */
+.case-study-section {
+  margin: 3rem 0;
+}
+
+.case-study-banner {
+  display: block;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.case-study-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+  text-decoration: none;
+  color: white;
+}
+
+.case-study-banner h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.case-study-banner p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.case-study-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.highlight {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .features-grid,
@@ -256,6 +317,14 @@ gh issue create --title "プロジェクト初期設定" --body "GitHub機能の
   
   .stat-item h3 {
     font-size: 2rem;
+  }
+  
+  .case-study-highlights {
+    flex-direction: column;
+  }
+  
+  .highlight {
+    text-align: center;
   }
 }
 </style>
