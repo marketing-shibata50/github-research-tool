@@ -837,3 +837,538 @@ git commit -m "fix: APIレスポンスのnullチェックを追加 #28"
 - テストケースの充実
 - コードレビューのチェックリスト更新
 - ドキュメントの改善
+
+# Conventional Commits - 標準化されたコミットメッセージ
+
+## 概要
+Conventional Commitsは、コミットメッセージに意味のある接頭辞（type）を付けることで、変更の意図を明確にし、自動化を可能にする規約です。
+
+## 基本構造
+```
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+## 主要なtype
+
+### 基本的なtype
+- **feat**: 新機能の追加
+- **fix**: バグ修正
+- **docs**: ドキュメントのみの変更
+- **style**: コードスタイルの変更（フォーマット、セミコロンなど）
+- **refactor**: バグ修正や機能追加を伴わないコードの変更
+- **test**: テストの追加・修正
+- **chore**: ビルドプロセスや補助ツールの変更
+
+### 実例
+```bash
+# 新機能
+git commit -m "feat: ユーザープロフィール画面を追加 #15"
+git commit -m "feat(auth): JWTトークンによる認証を実装"
+
+# バグ修正
+git commit -m "fix: ログイン時のメールバリデーションエラーを修正 #27"
+git commit -m "fix(api): nullレスポンスのハンドリングを追加"
+
+# ドキュメント
+git commit -m "docs: READMEにインストール手順を追加"
+git commit -m "docs(api): エンドポイントの説明を更新"
+
+# リファクタリング
+git commit -m "refactor: 認証ロジックを別モジュールに分離"
+git commit -m "refactor(utils): 日付処理関数を統合"
+
+# テスト
+git commit -m "test: ユーザー登録のE2Eテストを追加"
+git commit -m "test(unit): バリデーション関数のテストケースを追加"
+
+# 破壊的変更（重要）
+git commit -m "feat!: APIのレスポンス形式を変更"
+git commit -m "fix!: 認証方式をセッションからJWTに変更"
+```
+
+## メリット
+
+1. **履歴の可読性向上**: `git log --oneline`で変更の種類が一目瞭然
+2. **自動化**: 
+   - CHANGELOGの自動生成
+   - セマンティックバージョニング（major.minor.patch）の自動更新
+   - 特定typeのコミットに対するCI/CDトリガー
+3. **コミットの規律**: 1コミット1目的の原則が自然に身につく
+
+## worktreeワークフローとの統合
+
+```bash
+# Issue #30のユーザー設定機能を開発
+git worktree add -b feature/30-user-settings ../settings-work develop
+cd ../settings-work
+
+# 開発を進めながら、目的別にコミット
+git commit -m "feat: ユーザー設定画面のUIを作成 #30"
+git commit -m "feat: 設定保存APIエンドポイントを追加 #30"
+git commit -m "test: 設定保存機能のテストを追加 #30"
+git commit -m "docs: 設定機能のAPI仕様を記載 #30"
+```
+
+# GitHub Copilotによる開発効率化
+
+## セットアップ
+1. VS CodeにGitHub Copilot拡張機能をインストール
+2. GitHub Copilot Chat拡張機能もインストール（対話型支援用）
+
+## 主要な活用シーン
+
+### 1. コード補完とインライン生成
+```javascript
+// コメントを書くだけで実装を生成
+// ユーザーのメールアドレスをバリデートする関数
+function validateEmail(email) {
+  // Copilotが正規表現とバリデーションロジックを提案
+}
+```
+
+### 2. インラインチャット（Cmd+I / Ctrl+I）
+コードを選択して、自然言語で指示：
+- 「このコードをTypeScriptに変換して」
+- 「エラーハンドリングを追加して」
+- 「より効率的に書き直して」
+
+### 3. チャットビュー（サイドパネル）
+より複雑な質問や、プロジェクト全体に関する相談：
+- 「このプロジェクトの認証フローを説明して」
+- 「新しいAPIエンドポイントを追加する手順は？」
+
+### 4. スラッシュコマンド
+- `/explain`: 選択したコードの説明
+- `/tests`: ユニットテストの自動生成
+- `/fix`: バグの修正提案
+- `/optimize`: パフォーマンス改善の提案
+
+### 5. エージェント
+- `@workspace`: プロジェクト全体を理解した上での回答
+- `@vscode`: VS Codeの使い方に関する質問
+
+## 実践的な使用例
+
+### Issue駆動開発での活用
+```markdown
+# GitHub Issueの内容をCopilotに渡す
+「Issue #35: ユーザー検索機能を実装する。メールアドレスまたは名前で検索可能にする」
+
+# Copilotへの指示
+@workspace この機能を実装するために必要なファイルと手順を教えて
+```
+
+### テスト駆動開発（TDD）での活用
+```javascript
+// 1. まずテストを書く（Copilotが補完）
+describe('UserSearch', () => {
+  it('should find users by email', async () => {
+    // Copilotがテストケースを提案
+  });
+});
+
+// 2. 実装を生成
+// Copilot: 「このテストをパスする実装を作成して」
+```
+
+### コミットメッセージの生成
+VS Codeのソース管理パネルで、Copilotアイコンをクリックして変更内容に基づいたConventional Commits形式のメッセージを生成。
+
+# GitHub Actions - CI/CD自動化
+
+## 基本的なCI/CDパイプライン
+
+### 1. 継続的インテグレーション（CI）
+```yaml
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [ develop, 'feature/**' ]
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run linter
+      run: npm run lint
+    
+    - name: Run tests
+      run: npm run test
+    
+    - name: Build
+      run: npm run build
+```
+
+### 2. 自動デプロイ（CD）
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install and Build
+      run: |
+        npm ci
+        npm run build
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+```
+
+### 3. 自動Issue管理
+```yaml
+# .github/workflows/issue-automation.yml
+name: Issue Automation
+
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  update-issue:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Move issue to In Progress
+      if: github.event.action == 'opened'
+      uses: peter-evans/create-or-update-project-card@v2
+      with:
+        project-name: Development
+        column-name: In Progress
+        issue-number: ${{ github.event.pull_request.number }}
+    
+    - name: Close linked issues
+      if: github.event.pull_request.merged == true
+      uses: peter-evans/close-issue@v2
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment: Completed in PR #${{ github.event.pull_request.number }}
+```
+
+### 4. 依存関係の自動更新
+```yaml
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "automated"
+```
+
+## worktreeワークフローとの統合
+
+1. **feature/**ブランチへのpush** → CI実行
+2. **PRの作成** → テスト実行 + Issueステータス更新
+3. **developへのマージ** → ステージング環境へのデプロイ
+4. **mainへのマージ** → 本番環境へのデプロイ
+
+# Alternative: Jujutsu (jj) を使った革新的アプローチ
+
+## 概要
+Jujutsuは「ワーキングコピーは常にコミット」という革新的な思想のVCSです。GitHubとの完全互換性を保ちながら、ローカル開発体験を劇的に改善します。
+
+## 主な特徴
+
+### 1. ステージングエリアが不要
+```bash
+# Gitの場合
+git add file.js
+git commit -m "feat: 新機能追加"
+
+# jjの場合（ファイルを保存した時点で自動的にコミットに含まれる）
+jj describe -m "feat: 新機能追加"
+```
+
+### 2. git stashが不要
+```bash
+# 別の作業を始めたい時
+# Gitの場合
+git stash
+git checkout -b other-feature
+
+# jjの場合（現在の作業は自動的に保存される）
+jj new -m "feat: 別の機能"
+```
+
+### 3. 直感的な履歴編集
+```bash
+# 過去のコミットを修正
+jj edit <change-id>
+# ファイルを修正
+jj edit @  # 最新に戻る（間のコミットは自動リベース）
+```
+
+### 4. 強力なundo
+```bash
+# どんな操作も一発で取り消し
+jj undo
+```
+
+## GitHubワークフローとの統合
+
+```bash
+# 1. 既存のGitリポジトリでjjを使用開始
+cd my-project
+jj git init --colocate
+
+# 2. 新機能の開発
+jj new -m "feat: ユーザー認証機能 #40"
+# コーディング...
+
+# 3. コミットの分割（必要に応じて）
+jj split
+
+# 4. GitHubにプッシュ
+jj bookmark create feature/40-auth
+jj git push --bookmark feature/40-auth
+
+# 5. GitHub上でPR作成（通常通り）
+```
+
+## worktreeとjjの使い分け
+
+| 状況 | worktree | jj |
+|-----|----------|-----|
+| チーム開発 | ◎（Gitの知識で十分） | △（チーム全体の学習が必要） |
+| 個人開発 | ○（並行作業に最適） | ◎（最高の開発体験） |
+| 複雑な履歴操作 | △（rebaseが面倒） | ◎（直感的） |
+| GitHub統合 | ◎（完全にGit） | ○（変換が必要） |
+
+## まとめ
+
+現在のworktreeベースのワークフローは十分に効率的ですが、以下の追加により更に強化されます：
+
+1. **Conventional Commits**: 履歴の可読性と自動化
+2. **GitHub Copilot**: AI支援による高速開発
+3. **GitHub Actions**: 完全自動化されたCI/CD
+4. **Jujutsu（オプション）**: 究極のローカル開発体験
+
+これらを段階的に導入することで、個人開発の生産性を最大化できます。
+
+# 新規開発ワークフロー 詳細設計書（jj版）
+
+## 概要
+Jujutsu（jj）を使用した新規開発ワークフローです。「ワーキングコピーは常にコミット」という革新的な思想により、git stashやステージングエリアの概念から解放され、よりシンプルで直感的な開発体験を実現します。
+
+## 1. 計画フェーズ：思考を外部化し、道筋を立てる
+
+### 概要
+基本的にはGit版と同じです。GitHubのIssueとProjectsを使ってタスクを管理します。
+
+### 流れ
+
+1. **リポジトリの作成**: GitHub上でリポジトリを作成し、ローカルにクローン
+
+2. **jjの初期化**:
+   ```bash
+   # Gitリポジトリでjjを使用開始
+   cd my-project
+   jj git init --colocate
+   ```
+
+3. **ブランチ戦略**:
+   - jjでは「ブランチ」の概念が薄く、「変更（change）」が中心
+   - GitHubとの互換性のため、mainとdevelopの概念は維持
+   - ただし、ローカルではブックマークとして管理
+
+4. **仕様書の作成**: README.mdに記載（Git版と同じ）
+
+5. **全タスクのIssue化**: GitHub上で管理（Git版と同じ）
+
+## 2. 開発フェーズ：摩擦のない開発体験
+
+### 概要
+jjの真価が発揮されるフェーズです。ステージングやstashを意識することなく、自然な流れで開発を進められます。
+
+### 流れ
+
+1. **Issueの選択**: GitHub Projectsから取り組むIssueを選択
+
+2. **新しい変更の開始**:
+   ```bash
+   # mainの最新から新しい変更を開始
+   jj new main -m "feat: ログイン機能を実装 #11"
+   ```
+   - ブランチ名を考える必要なし
+   - 即座に作業開始可能
+
+3. **開発の進行**:
+   ```bash
+   # ファイルを編集すると自動的に現在の変更に含まれる
+   # エディタでlogin.jsを編集
+   
+   # 現在の差分を確認
+   jj diff
+   
+   # 変更の説明を更新（git commit --amendに相当）
+   jj describe -m "feat: ログインフォームのUIを追加 #11"
+   ```
+
+4. **作業の中断と再開**（jjの最大の利点）:
+   ```bash
+   # 急にバグ修正が必要になった場合
+   # 現在の作業は自動的に保存されているので、単に新しい変更を開始
+   jj new main -m "fix: 認証エラーの修正 #12"
+   
+   # バグ修正...
+   
+   # ログイン機能に戻りたい時
+   jj edit <ログイン機能のchange-id>
+   # または、jj logで履歴を見て選択
+   ```
+
+5. **コミットの整理**:
+   ```bash
+   # 大きすぎる変更を分割
+   jj split
+   
+   # 複数の変更を1つに統合
+   jj squash
+   
+   # 過去の変更を修正（超簡単！）
+   jj edit <過去のchange-id>
+   # ファイルを修正
+   jj edit @  # 最新に戻る（自動リベース）
+   ```
+
+6. **GitHubへの共有準備**:
+   ```bash
+   # GitHub用のブックマーク（ブランチ）を作成
+   jj bookmark create feature/11-login
+   
+   # リモートにプッシュ
+   jj git push --bookmark feature/11-login
+   ```
+
+## 3. レビュー＆統合フェーズ
+
+### 概要
+GitHub上でのプロセスは従来と同じですが、レビューフィードバックへの対応がjjでは格段に簡単になります。
+
+### 流れ
+
+1. **Pull Request作成**: GitHub上で通常通りPRを作成
+
+2. **自動テスト**: GitHub Actionsが実行（Git版と同じ）
+
+3. **フィードバック対応**（jjの利点）:
+   ```bash
+   # レビューで「3つ前のコミットのタイポ」を指摘された場合
+   
+   # 該当のコミットに直接ジャンプ
+   jj edit <3つ前のchange-id>
+   
+   # タイポを修正
+   
+   # 最新に戻る（間のコミットは自動的にリベース！）
+   jj edit @
+   
+   # 更新をプッシュ（自動的にforce-push）
+   jj git push --bookmark feature/11-login
+   ```
+
+4. **マージ**: GitHub上でPRをマージ
+
+5. **後片付け**:
+   ```bash
+   # ローカルの状態を更新
+   jj git fetch
+   
+   # 不要になったブックマークを削除
+   jj bookmark delete feature/11-login
+   
+   # mainを最新に
+   jj new main
+   ```
+
+## jj特有の便利な操作
+
+### 1. 実験的な変更
+```bash
+# 実験的なアプローチを試したい
+jj new -m "実験: 新しいアルゴリズム"
+
+# うまくいかなかった場合
+jj abandon @  # この変更を破棄
+# 自動的に前の変更に戻る
+```
+
+### 2. 並行作業の可視化
+```bash
+# 現在進行中の全ての作業を確認
+jj log
+
+# グラフィカルに表示
+jj log --graph
+```
+
+### 3. 究極のセーフティネット
+```bash
+# どんな操作もやり直し可能
+jj undo  # 直前の操作を取り消し
+jj op log  # 操作履歴を確認
+jj op restore <operation-id>  # 特定の時点に戻る
+```
+
+## worktreeワークフローとの比較
+
+| 観点 | worktree | jj |
+|------|----------|-----|
+| 作業の切り替え | 物理的にフォルダを移動 | 論理的に変更を切り替え |
+| 並行作業の管理 | 複数のフォルダ | 1つのフォルダ内で完結 |
+| 学習コスト | Gitの延長線上 | 新しい概念の理解が必要 |
+| ディスク使用量 | 作業数×リポジトリサイズ | 1リポジトリ分のみ |
+| 作業の可視性 | lsコマンドで確認 | jj logで確認 |
+
+## まとめ
+
+jjを使った新規開発ワークフローの特徴：
+
+1. **ブランチ管理からの解放**: ブランチ名を考える必要なし
+2. **stash不要**: 作業の中断・再開が自然
+3. **履歴編集が簡単**: 過去のコミット修正が直感的
+4. **安全性**: すべての操作がundo可能
+
+特に個人開発や小規模チームでは、jjの「摩擦のない」開発体験により、創造的な作業により集中できるようになります。
